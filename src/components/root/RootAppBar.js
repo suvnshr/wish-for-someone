@@ -6,11 +6,20 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Fab } from '@mui/material';
 import { AutoFixHigh, Star } from '@mui/icons-material';
+import CreateWishDialog from '../create/CreateWishDialog';
 
 
 
 
 function RootAppBar(props) {
+
+  const [createDialogOpen, setCreateDialogOpen] = React.useState(false);
+
+  const toggleCreateDialog = () => {
+    setCreateDialogOpen(!createDialogOpen);
+  };
+
+
   return (
     <Box sx={{ display: 'flex', mb: 12 }}>
       <CssBaseline />
@@ -25,7 +34,7 @@ function RootAppBar(props) {
             Wish for someone!
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Fab variant="extended" size="large" color="primary">
+            <Fab variant="extended" size="large" color="primary" onClick={toggleCreateDialog}>
               <AutoFixHigh sx={{ mr: 1 }} />
               <Box sx={{ mt: 0.5 }}>
                 Wish
@@ -34,6 +43,8 @@ function RootAppBar(props) {
           </Box>
         </Toolbar>
       </AppBar>
+
+      <CreateWishDialog open={createDialogOpen} closeCreateDialog={toggleCreateDialog} />
     </Box>
   );
 }

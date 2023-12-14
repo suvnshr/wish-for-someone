@@ -15,6 +15,16 @@ export default class SupaBaseServer {
 
     }
 
+    async addAWish(wish, author) {
+        const { error } = await this.supabase
+            .from('wishes')
+            .insert({ wish, author })
+
+        return {
+            data: !Boolean(error), error
+        }
+    }
+
 
     async getAWish(id) {
 
