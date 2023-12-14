@@ -1,4 +1,4 @@
-import HomeClient from './_components/Home/Home.client'
+import HomeClient from '../components/Home/Home.client'
 import styles from './page.module.css'
 
 export default function Home() {

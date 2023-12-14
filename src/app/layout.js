@@ -1,5 +1,5 @@
 import './globals.css'
-import RootClientComponent from './_components/Root/Root.client'
+import RootClientComponent from '../components/Root/Root.client'
 
 export const metadata = {
   title: 'Wish for someone',
