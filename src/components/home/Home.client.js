@@ -1,11 +1,12 @@
 "use client";
 
-import { Alert, AlertTitle, Box, Container, Grid } from '@mui/material';
+import { Alert, AlertTitle, Box, Container, Grid, Typography } from '@mui/material';
 import React from 'react'
 import WishCard from './WishCard';
 import useWishServer from '@/supabase/hooks';
 import ErrorAlert from '../common/ErrorAlert';
 import Loader from '../common/Loader';
+import { NightsStay, NightsStayOutlined } from '@mui/icons-material';
 
 
 
@@ -30,6 +31,15 @@ function HomeClient() {
                         </Grid>
                     )
                 }
+
+                {wishes.length === 0 ?
+                    <Grid container sx={{ mt: 3 }} justifyContent="center" alignItems="center">
+
+                        <NightsStayOutlined htmlColor="#7a7a7a" sx={{ mr: 1, mt: 1 }} />
+                        <Typography sx={{ pt: 2 }} color="text.secondary" variant="h6">No wishes to list</Typography>
+
+
+                    </Grid> : null}
             </Grid>
         </Box>
     )
