@@ -22,7 +22,7 @@ function HomeClient() {
     }
 
     return (
-        <Box sx={{ px: 4 }}>
+        <Box sx={{ px: 4, mb: 10 }}>
             <Grid container spacing={4} justifyContent="center">
                 {
                     (wishes ?? []).map(({ id, wish, author, likes }, index) =>
