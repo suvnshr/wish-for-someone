@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import SupaBaseServer from './server';
+import { WishOpContext } from '@/context/WishOpContext';
 
 export const useWishServer = (...args) => {
+
+    const { fetchWishes, setFetchWishes } = useContext(WishOpContext)
 
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -24,8 +27,16 @@ export const useWishServer = (...args) => {
             }
         };
 
-        fetchData();
-    }, []);
+        if (fetchWishes) fetchData();
+
+    }, [fetchWishes]);
+
+
+    useEffect(() => {
+        if (data && fetchWishes) {
+            setFetchWishes(false);
+        }
+    }, [data])
 
     return { data, loading, error };
 };

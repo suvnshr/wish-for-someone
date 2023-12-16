@@ -8,6 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import SupaBaseServer from '@/supabase/server';
 import { Alert, CircularProgress } from '@mui/material';
+import { WishOpContext } from '@/context/WishOpContext';
 
 
 const WISH_MAX_LENGTH = 100;
@@ -16,6 +17,8 @@ const NAME_MAX_LENGTH = 30;
 export default function CreateWishDialog({ open, closeCreateDialog }) {
 
     const wishRef = React.useRef(null);
+
+    const { setFetchWishes } = React.useContext(WishOpContext)
 
     // Wish text
     const [wish, setWish] = React.useState("");
@@ -60,6 +63,12 @@ export default function CreateWishDialog({ open, closeCreateDialog }) {
             if (saved) {
                 // Reset any errors from before
                 setErrorWhileSave(false);
+
+                setFetchWishes(true);
+
+                // Reset state
+                setWish("");
+                setAuthor("");
 
                 // Close the creation dialog, when save is done
                 closeCreateDialog();
