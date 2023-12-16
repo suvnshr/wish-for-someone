@@ -36,7 +36,7 @@ body {
 }
 
 .neon-text {
-    font-family: "Pacifico", cursive;
+    font-family: "Pacifico", cursive!important;
     color: #ebcfed;
     text-shadow: 0 0 7px var(--glow-bg-color), 0 0 10px var(--glow-bg-color),
         0 0 21px var(--glow-bg-color), 0 0 42px var(--glow-bg-color),
