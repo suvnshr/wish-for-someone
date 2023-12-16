@@ -1,4 +1,5 @@
 :root {
+    --glow-scrollbar-color: #3c0c4f3a;
     --glow-bg-color: #bc13fe44;
     --glow-bg-orginal: #bc13fe;
 }
@@ -63,4 +64,27 @@ body {
         text-shadow: 0 0 1px var(--glow-bg-orginal), 0 0 1px #fff,
             0 0 1px var(--glow-bg-orginal), 0 0 1px var(--glow-bg-orginal);
     }
+}
+
+/* For scrollbar */
+body::-webkit-scrollbar {
+    width: 15px;
+}
+
+body {
+    scrollbar-width: thick;
+    scrollbar-color: var(--glow-bg-color) var( --glow-scrollbar-color);
+}
+body::-webkit-scrollbar-track {
+    background: var(- --glow-scrollbar-color);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--glow-bg-color);
+    border-radius: 20px;
+    border: 2px solid var( --glow-scrollbar-color);
+
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
