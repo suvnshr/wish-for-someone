@@ -45,6 +45,21 @@ function RootAppBar(props) {
       </AppBar>
 
       <CreateWishDialog open={createDialogOpen} closeCreateDialog={toggleCreateDialog} />
+
+    {/* Only visible in mobiles */}
+      <Fab
+        onClick={toggleCreateDialog}
+        sx={{
+          display: {
+            xs: "block", sm: "none"
+          },
+
+          position: "absolute",
+          bottom: "40px",
+          right: "10px"
+        }} color="primary">
+        <AutoFixHigh sx={{ mt: 1 }} />
+      </Fab>
     </Box>
   );
 }

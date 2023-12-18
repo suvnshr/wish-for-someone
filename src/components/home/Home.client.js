@@ -26,7 +26,7 @@ function HomeClient() {
             <Grid container spacing={4} justifyContent="center">
                 {
                     (wishes ?? []).map(({ id, wish, author, likes }, index) =>
-                        <Grid item xs={3} sm={3} md={3} key={`wish-card-${index}`} >
+                        <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={`wish-card-${index}`} >
                             <WishCard id={id} wish={wish} author={author} likes={likes} />
                         </Grid>
                     )
